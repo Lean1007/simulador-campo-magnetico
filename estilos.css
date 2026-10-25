@@ -1,0 +1,176 @@
+:root {
+    --fondo: #0b0b1a;
+    --panel: #161631;
+    --violeta: #5b31bd;
+    --cian: #22d3ee;
+    --texto: #e5e7eb;
+    --input: rgb(81, 11, 107);   
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 32px;
+}
+
+h1 {
+    background: linear-gradient(90deg, var(--cian), var(--violeta));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.panel {
+    background-color: var(--panel);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+    border: 1px solid var(--violeta);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;          
+}
+
+
+input, select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;      
+    background-color: var(--input);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;        
+}
+
+select {
+    cursor: pointer;             
+}
+
+button {
+    background-color: var(--violeta);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+    background-color: var(--cian);
+    color: black;
+}
+
+#lienzo {
+    display: block;
+    width: auto;            
+    height: auto;
+    max-width: 100%;        
+    max-height: 65vh;       
+    margin: 0 auto;         
+    background-color: rgb(18, 18, 18);
+    border-radius: 8px;
+}
+
+#mensajeError {
+    color: #f87171;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    padding: 0;
+    background: transparent;
+    accent-color: var(--cian);
+    cursor: pointer;
+}
+
+.nota {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: -8px;
+}
+
+.formulas p {
+    display: inline-block;
+    background-color: var(--fondo);
+    border: 1px solid var(--violeta);
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin: 4px;
+    font-family: "Cambria Math", serif;
+    font-size: 18px;
+}
+
+.formulas + .nota {
+    margin-top: 8px;
+}
+
+/* ---------- Tarjetas de resultados ---------- */
+.resultados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.tarjeta {
+    background-color: var(--fondo);
+    border: 1px solid var(--violeta);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.titulo {
+    display: block;
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 6px;
+}
+
+.valor {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ancha {
+    grid-column: 1 / -1;   
+}
+
+/*---Version celu-----*/
+@media (max-width: 800px) {
+    body {
+        padding: 16px;                 /* menos margen en los bordes */
+    }
+
+    h1 {
+        font-size: 24px;               /* título más chico */
+    }
+
+    main {
+        grid-template-columns: 1fr;    /* una sola columna: paneles apilados */
+    }
+
+    button {
+        flex: 1;
+        padding: 12px;                 /* más fáciles de tocar con el dedo */
+    }
+
+    .resultados {
+        grid-template-columns: 1fr 1fr;   /* 2 tarjetas por fila */
+    }
+}

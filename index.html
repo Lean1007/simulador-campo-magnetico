@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Carga en campo magnético</title>
+</head>
+<body>
+    <header>
+        <p>Física II - Simulador Interactivo</p>
+        <h1>Movimiento de una carga en un campo magnético uniforme</h1>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h2>Parámetros del simulador</h2>
+
+            <label for="carga">Carga (µC)</label>
+            <input type="number" id="carga" value="25">
+
+            <label for="masa">Masa (mg)</label>
+            <input type="number" id="masa" value="2.5">
+
+            <label for="velocidad">Velocidad (m/s)</label>
+            <input type="number" id="velocidad" value="40">
+
+            <label for="campo">Campo B (T)</label>
+            <input type="number" id="campo" value="0.8">
+
+            <label for="direccionCampo">Dirección del campo</label>
+            <select id="direccionCampo">
+                <option value="saliente">Saliente</option>
+                <option value="entrante">Entrante</option>
+            </select>
+
+            <label for="escala">Escala gráfica: <span id="valorEscala">25</span> px/m</label>
+            <input type="range" id="escala" min="5" max="60" step="1" value="25">
+
+            <label for="rapidez">Rapidez visual: <span id="valorRapidez">0.3</span>x</label>
+            <input type="range" id="rapidez" min="0.1" max="2" step="0.1" value="0.3">
+            <p class="nota">Solo cambia la velocidad de la animación, no los resultados físicos.</p>
+
+            <button id="btnIniciar">Iniciar</button>
+            <button id="btnPausar">Pausar</button>
+            <button id="btnReiniciar">Reiniciar</button>
+
+            <p id="mensajeError"></p>
+        </section>
+
+        <section class="panel">
+            <h2>Simulación</h2>
+            <canvas id="lienzo" width="700" height="450"></canvas>
+
+            <h2>Resultados</h2>
+            <div class="resultados">
+                <div class="tarjeta">
+                    <span class="titulo">Fuerza magnética</span>
+                    <span class="valor" id="resFuerza">-</span>
+                </div>
+                <div class="tarjeta">
+                    <span class="titulo">Radio de la trayectoria</span>
+                    <span class="valor" id="resRadio">-</span>
+                </div>
+                <div class="tarjeta">
+                    <span class="titulo">Período</span>
+                    <span class="valor" id="resPeriodo">-</span>
+                </div>
+                <div class="tarjeta">
+                    <span class="titulo">Frecuencia</span>
+                    <span class="valor" id="resFrecuencia">-</span>
+                </div>
+                <div class="tarjeta">
+                    <span class="titulo">Sentido de giro</span>
+                    <span class="valor" id="resSentido">-</span>
+                </div>
+            </div>
+
+            <h2>Modelo físico utilizado</h2>
+            <div class="formulas">
+                <p>F = |q|·v·B</p>
+                <p>r = m·v / (|q|·B)</p>
+                <p>T = 2π·m / (|q|·B)</p>
+                <p>f = 1/T</p>
+            </div>
+            <p class="nota">El radio sale de igualar la fuerza magnética con la fuerza centrípeta: |q|·v·B = m·v²/r</p>
+        </section>
+    </main>
+
+    <script src="simulador.js"></script>
+</body>
+</html>
